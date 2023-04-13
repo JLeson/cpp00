@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 15:48:04 by fsarkoh           #+#    #+#             */
-/*   Updated: 2023/04/13 19:41:02 by joel             ###   ########.fr       */
+/*   Created: 2023/04/13 19:22:56 by joel              #+#    #+#             */
+/*   Updated: 2023/04/13 19:33:16 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
+#include "Contact.hpp"
 
-class Contact
+class Phonebook
 {
 private:
-	std::string	_firstname;
-	std::string	_lastname;
-	std::string	_nickname;
-	std::string	_phonenumber;
-	std::string	_secret;
+	Contact	_contacts[8];
 public:
-	Contact();
-	~Contact();
-
-	void	set_contact(std::string firstname, std::string lastname, 
-						std::string nickname, std::string phonenumber, 
-						std::string secret);
-	void	print_contact();
+	Phonebook();
+	~Phonebook();
 };
