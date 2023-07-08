@@ -6,11 +6,18 @@
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 13:29:18 by joel              #+#    #+#             */
-/*   Updated: 2023/07/08 14:12:29 by joel             ###   ########.fr       */
+/*   Updated: 2023/07/08 14:46:26 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "awsomephonebook.hpp"
+
+static std::string	truncate(std::string str)
+{
+	if (str.length() > 10)
+		return (str.substr(0, 9) + ".");
+	return str;
+}
 
 PhoneBook::PhoneBook() 
 {
@@ -19,6 +26,23 @@ PhoneBook::PhoneBook()
 }
 
 PhoneBook::~PhoneBook() {}
+
+void	PhoneBook::print_contacts(void)
+{
+	std::cout << std::endl;
+	std::cout << "PHONEBOOK CONTACTS" << std::endl;
+	std::cout << "-------------------------------------------" << std::endl;
+	std::cout << "         #|FIRST NAME| LAST NAME|  NICKNAME" << std::endl;
+	for (int i = 0; i < this->n_contacts; i++)
+	{
+		std::cout << std::setw(10) << i << "|" << std::flush;
+		std::cout << std::setw(10) << truncate(this->_contacts[i].firstname) << "|" << std::flush;
+		std::cout << std::setw(10) << truncate(this->_contacts[i].lastname) << "|" << std::flush;
+		std::cout << std::setw(10) << truncate(this->_contacts[i].nickname) << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+}
 
 void	PhoneBook::insert_contact(std::string firstname, std::string lastname, std::string nickname,
 			std::string phonenumber, std::string secret)

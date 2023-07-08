@@ -6,7 +6,7 @@
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 13:13:19 by joel              #+#    #+#             */
-/*   Updated: 2023/07/08 14:14:22 by joel             ###   ########.fr       */
+/*   Updated: 2023/07/08 14:30:27 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ int main(void)
 		else if (command == ADD_CMD)
 			add(&phonebook);
 		else if (command == SEARCH_CMD)
+		{
+			phonebook.print_contacts();
 			search(&phonebook);
+		}
 	}
 	return (0);
 }
