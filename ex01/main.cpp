@@ -3,37 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 15:51:11 by fsarkoh           #+#    #+#             */
-/*   Updated: 2023/04/13 16:30:45 by fsarkoh          ###   ########.fr       */
+/*   Created: 2023/07/08 13:13:19 by joel              #+#    #+#             */
+/*   Updated: 2023/07/08 14:14:22 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "awsomephonebook.hpp"
 
-static void	add(void)
+static void	insert_field(std::string prompt, std::string *dest)
 {
-	std::cout << "add contact" << std::endl;
+	std::cout << prompt << std::endl;
+	std::cin >> *dest;
+	if ((*dest).empty())
+	{
+		std::cout << EMPTY_FIELD_ERR_MSG << std::endl;
+		insert_field(prompt, dest);
+	}
 }
 
-static void	search(void)
+static void	add(PhoneBook *phonebook)
 {
-	std::cout << "search contact" << std::endl;
+	std::string	firstname;
+	std::string	lastname;
+	std::string nickname;
+	std::string	phonenumber;
+	std::string	secret;
+
+	insert_field("Enter firstname:", &firstname);
+	insert_field("Enter lastname:", &lastname);
+	insert_field("Enter nickname:", &nickname);
+	insert_field("Enter phonenumber:", &phonenumber);
+	insert_field("Enter secret:", &secret);
+	phonebook->insert_contact(firstname, lastname, nickname, phonenumber, secret);
 }
 
-int	main(void)
+static void	search(PhoneBook *phonebook)
+{	
+	int	idx;
+
+	std::cout << "Enter contact index:" << std::endl;
+	std::cin >> idx;
+	if (idx >= MAX_CONTACTS || idx >= phonebook->n_contacts)
+	{
+		std::cout << INVALID_INDEX_ERR_MSG << std::endl;
+		return ;
+	}
+	phonebook->get_contact(idx)->print_contact();
+}
+
+int main(void)
 {
+	PhoneBook	phonebook;
 	std::string	command;
 
 	while (true)
 	{
 		std::cin >> command;
-		if (command == "EXIT")
+		if (command == EXIT_CMD)
 			return (0);
-		else if (command == "ADD")
-			add();
-		else if (command == "SEARCH")
-			search();
+		else if (command == ADD_CMD)
+			add(&phonebook);
+		else if (command == SEARCH_CMD)
+			search(&phonebook);
 	}
+	return (0);
 }

@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 15:54:29 by fsarkoh           #+#    #+#             */
-/*   Updated: 2023/04/13 19:42:26 by joel             ###   ########.fr       */
+/*   Created: 2023/07/08 13:20:07 by joel              #+#    #+#             */
+/*   Updated: 2023/07/08 14:21:20 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Contact.hpp"
+#include "awsomephonebook.hpp"
 
-void	Contact::set_contact(std::string firstname, std::string lastname, 
-						std::string nickname, std::string phonenumber, 
-						std::string secret)
+Contact::Contact() {}
+Contact::~Contact() {}
+
+void	Contact::set_contact(std::string firstname, std::string lastname, std::string nickname, std::string phonenumber, std::string secret)
 {
 	this->_firstname = firstname;
 	this->_lastname = lastname;

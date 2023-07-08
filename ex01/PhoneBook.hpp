@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 19:22:56 by joel              #+#    #+#             */
-/*   Updated: 2023/04/13 19:33:16 by joel             ###   ########.fr       */
+/*   Created: 2023/07/08 13:29:23 by joel              #+#    #+#             */
+/*   Updated: 2023/07/08 14:11:53 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#define MAX_CONTACTS	8
+#include <iostream>
 #include "Contact.hpp"
 
-class Phonebook
+class PhoneBook
 {
 private:
-	Contact	_contacts[8];
+	Contact	_contacts[MAX_CONTACTS];
+	int		_contact_insert_idx;
 public:
-	Phonebook();
-	~Phonebook();
+	int		n_contacts;
+
+	PhoneBook();
+	~PhoneBook();
+	void	insert_contact(std::string firstname, std::string lastname, std::string nickname,
+							std::string phonenumber, std::string secret);
+	Contact *get_contact(int idx);
 };

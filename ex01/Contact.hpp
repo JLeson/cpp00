@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 15:48:04 by fsarkoh           #+#    #+#             */
-/*   Updated: 2023/04/13 19:41:02 by joel             ###   ########.fr       */
+/*   Created: 2023/07/08 13:19:16 by joel              #+#    #+#             */
+/*   Updated: 2023/07/08 14:20:47 by joel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
 
 class Contact
 {
@@ -25,8 +24,7 @@ public:
 	Contact();
 	~Contact();
 
-	void	set_contact(std::string firstname, std::string lastname, 
-						std::string nickname, std::string phonenumber, 
-						std::string secret);
+	void	set_contact(std::string firstname, std::string lastname, std::string nickname,
+							std::string phonenumber, std::string secret);
 	void	print_contact();
 };
