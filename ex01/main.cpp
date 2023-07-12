@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joel <joel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 13:13:19 by joel              #+#    #+#             */
-/*   Updated: 2023/07/08 14:30:27 by joel             ###   ########.fr       */
+/*   Updated: 2023/07/12 15:42:28 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static void	search(PhoneBook *phonebook)
 
 	std::cout << "Enter contact index:" << std::endl;
 	std::cin >> idx;
-	if (idx >= MAX_CONTACTS || idx >= phonebook->n_contacts)
+	if (idx >= MAX_CONTACTS || idx >= phonebook->get_n_contacts())
 	{
-		std::cout << INVALID_INDEX_ERR_MSG << std::endl;
+		std::cerr << INVALID_INDEX_ERR_MSG << std::endl;
 		return ;
 	}
 	phonebook->get_contact(idx)->print_contact();
@@ -70,6 +70,8 @@ int main(void)
 			phonebook.print_contacts();
 			search(&phonebook);
 		}
+		else
+			std::cerr << INVALID_CMD_ERR_MSG << std::endl;
 	}
 	return (0);
 }
