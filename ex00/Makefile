@@ -1,9 +1,8 @@
 NAME					=	megaphone
 
 SRCDIR					=	./
-INCLUDEDIR				=	./
 
-SRCFILES				=	main.cpp
+SRCFILES				=	megaphone.cpp
 
 SRCS					=	$(addprefix $(SRCDIR), $(SRCFILES))
 
@@ -13,8 +12,8 @@ RM						=	rm -f
 
 all:					$(NAME)
 
-$(NAME):				$(LIBDIR)$(LIBFTNAME) $(SRCS)
-							$(CC) $(CFLAGS) $(SRCS) $(LIBDIR)$(LIBFTNAME) -I $(INCLUDEDIR) -o $(NAME)
+$(NAME):				$(SRCS)
+							$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 clean:
 							$(RM) $(NAME)
