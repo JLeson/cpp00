@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 13:12:46 by joel              #+#    #+#             */
-/*   Updated: 2023/07/12 15:46:17 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2023/09/07 14:46:00 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <limits>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 

@@ -6,11 +6,12 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 13:13:19 by joel              #+#    #+#             */
-/*   Updated: 2023/08/23 14:54:06 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2023/09/07 15:30:06 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "awsomephonebook.hpp"
+#include <unistd.h>
 
 static void	insert_field(std::string prompt, std::string *dest)
 {
@@ -45,12 +46,12 @@ static void	search(PhoneBook *phonebook)
 	int			idx;
 
 	std::cout << "Enter contact index:" << std::endl;
-	std::cin >> input;
-	idx = -1;
-	if (input[0] >= '0' && input[0] <= '9')
-		idx = std::stoi(input);
-	if (idx >= MAX_CONTACTS || idx >= phonebook->get_n_contacts() || idx < 0)
+	std::cin >> idx;
+	std::cout << idx << std::endl;
+	if (idx >= MAX_CONTACTS || idx >= phonebook->get_n_contacts() || idx < 0 || !std::cin.good())
 	{
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 		std::cerr << INVALID_INDEX_ERR_MSG << std::endl;
 		return ;
 	}
