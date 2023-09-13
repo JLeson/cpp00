@@ -6,7 +6,7 @@
 /*   By: fsarkoh <fsarkoh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 13:13:19 by joel              #+#    #+#             */
-/*   Updated: 2023/09/07 15:30:06 by fsarkoh          ###   ########.fr       */
+/*   Updated: 2023/09/13 14:25:48 by fsarkoh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static void	search(PhoneBook *phonebook)
 
 	std::cout << "Enter contact index:" << std::endl;
 	std::cin >> idx;
-	std::cout << idx << std::endl;
 	if (idx >= MAX_CONTACTS || idx >= phonebook->get_n_contacts() || idx < 0 || !std::cin.good())
 	{
 		std::cin.clear();
